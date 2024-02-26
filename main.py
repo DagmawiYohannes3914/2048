@@ -28,3 +28,22 @@ def generation(grid,first_gen=False):#this will generate the numbers that we wil
         
     grid[first_row][first_colomn]=random.choice(first_generation)
     return grid
+def merge(matrix):  #adds similar numbers to the left side
+    global score
+    x = [0]*len(matrix)
+    for num in range(len(matrix)):
+        c=[]
+        for row in matrix[num]:
+            if row!=0:
+                c.append(row)
+        i=0
+        while i < len(c)-1:
+            if c[i]==c[i+1]:
+                score+=c[i]
+                c[i]*=2
+                del c[i+1]
+            i+=1
+        while len(c) < len(matrix[num]):
+            c.append(0)
+        x[num]=c[:]
+    return x
