@@ -47,3 +47,12 @@ def merge(matrix):  #adds similar numbers to the left side
             c.append(0)
         x[num]=c[:]
     return x
+
+def transpose(matrix):    #we use transpose to add similar numbers up and dowm
+    new_matrix=[]
+    for colomn in range(len(matrix[0])):
+        x=[]
+        for row in range(len(matrix)):
+                       x.append(matrix[row][colomn])
+        new_matrix.append(x)
+    return new_matrix
