@@ -56,3 +56,9 @@ def transpose(matrix):    #we use transpose to add similar numbers up and dowm
                        x.append(matrix[row][colomn])
         new_matrix.append(x)
     return new_matrix
+
+def inverse(matrix):   #we use inverse to add numbers to the right
+    new_matrix=[]
+    for list1 in matrix:
+        new_matrix.append(list1[::-1])
+    return new_matrix
