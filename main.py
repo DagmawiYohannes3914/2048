@@ -62,3 +62,14 @@ def inverse(matrix):   #we use inverse to add numbers to the right
     for list1 in matrix:
         new_matrix.append(list1[::-1])
     return new_matrix
+
+def move(matrix,movement):  #indicates what keys to use to move the numbers up, down, left or right
+    if movement=="8":
+        matrix=transpose(merge(transpose(matrix)))
+    elif movement=="5":
+        matrix=transpose(inverse(merge(inverse(transpose(matrix)))))
+    elif movement=="4":
+        matrix=merge(matrix)
+    elif movement=="6":
+        matrix=inverse(merge(inverse(matrix)))
+    return matrix
