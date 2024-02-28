@@ -73,3 +73,10 @@ def move(matrix,movement):  #indicates what keys to use to move the numbers up, 
     elif movement=="6":
         matrix=inverse(merge(inverse(matrix)))
     return matrix
+
+def is_there_space(matrix):   #checks if there is space to randomly import 2 or 4 
+    for row in matrix:
+        for colomn in row:
+            if colomn==0:
+                return True
+    return False
