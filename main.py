@@ -80,3 +80,15 @@ def is_there_space(matrix):   #checks if there is space to randomly import 2 or 
             if colomn==0:
                 return True
     return False
+
+def is_there_move(matrix):    #checks if there is a potential move by adding two similar numbers
+    for row in matrix:
+        for i in range(len(row)-1):
+            if row[i]==row[i+1]:
+               return True
+    matrix=transpose(matrix)
+    for row in matrix:
+        for i in range(len(row)-1):
+            if row[i]==row[i+1]:
+               return True     
+    return False 
