@@ -92,3 +92,12 @@ def is_there_move(matrix):    #checks if there is a potential move by adding two
             if row[i]==row[i+1]:
                return True     
     return False 
+
+grid_size=int(input("Enter the size you want to play with"))
+print('''  Game Rules:
+                        In order to move up Enter ==> 8
+                        In order to move down Enter ==> 5
+                        In order to move left Enter ==> 4
+                        In order to move right Enter ==> 6''')
+grid=game_matrix()
+grid=generation(grid,True)
