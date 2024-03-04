@@ -1,6 +1,7 @@
 import os
 import random
 
+score = 0 
 def game_matrix(): #this will do the n by n grid
     global grid_size
     matrix=[0] * grid_size
@@ -101,3 +102,29 @@ print('''  Game Rules:
                         In order to move right Enter ==> 6''')
 grid=game_matrix()
 grid=generation(grid,True)
+
+while True:
+    print("your score is ", score)
+    grid2=grid[:]
+    display_game_matrix(grid)
+    movement=str(input("Enter the direction you want it to move"))
+    while movement not in ["8","4","5","6"]:
+        print("you should only enter 4,5,6,8")
+        movement=str(input("Enter the direction you want it to move"))
+    grid=move(grid,movement)
+    if grid2!=grid:
+        if is_there_space(grid):
+            grid=generation(grid)
+            for row in range(len(grid)):
+                for colomn in range (len(grid)):
+                   if grid[row][colomn]==2048:
+                       print("CONGRADULATION!! You Have Sumed Up 2048 Tils!!")
+                       break
+    move_available=is_there_move(grid)
+    os.system('cls')
+    if not move_available and not is_there_space(grid):#this will see if the grid is full, if it is full it will display game over and stop the game 
+        print("game Over")
+        break
+    else:
+        continue
+    
