@@ -128,3 +128,9 @@ while True:
     else:
         continue
     
+    
+new_file=open('score board.txt',"w")
+new_file.write(str(score))
+new_file.close()
+
+new_file = open('score board.txt','r')
