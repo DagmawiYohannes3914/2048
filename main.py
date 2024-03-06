@@ -2,6 +2,28 @@ import os
 import random
 
 score = 0 
+class Grid:
+    def __init__(self, size):
+        self.size = size
+        self.matrix = [[0] * size for _ in range(size)]
+
+    def display(self):
+        for row in self.matrix:
+            print('  '.join(map(str, row)))
+
+    def is_full(self):
+        return all(0 not in row for row in self.matrix)
+
+    def generate_tile(self):
+        if self.is_full():
+            return False
+        while True:
+            row = random.randint(0, self.size - 1)
+            col = random.randint(0, self.size - 1)
+            if self.matrix[row][col] == 0:
+                self.matrix[row][col] = random.choice([2, 2, 2, 2, 4])
+                return True
+            
 def game_matrix(): #this will do the n by n grid
     global grid_size
     matrix=[0] * grid_size
